@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Player</title>
+ <style type="text/css">
+ *{margin:0;padding:0;}
+ ul{list-style: none;}
+
+
+ #lrc{
+  text-align:center;
+  width:360px;
+  height:400px;
+  overflow:hidden;
+  border:2px solid #ddd;
+  box-shadow:2px 2px 2px silver;
+  position: relative;
+ }
+ #lrc ul{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: all .2s ease;
+ }
+ #lrc ul li{
+  text-indent:0;
+  margin:0;
+  padding:6px;
+ }
+#lrc ul li.on{
+ color:#33b;
+ font-weight:bold;
+ background:#ddf;
+}
+ </style>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+ <div id="audio-wrapper">
+   <p><audio src="data/shuishou.mp3" controls></audio></p>
+   <p><audio src="data/rongyao.mp3" controls></audio></p>
+ </div>
+ <div id="lrc">
+     <ul>
+         
+     </ul>
+ </div>
+ <script type="text/javascript">
+ $(function(){
+  var lrc = "data/rongyao.lrc"; // 默认是这首歌词
+  var html ='';
+  var arr = [];
+  var timer = null;
+
+  /**
+  * formate 用于转换歌词时间 返回秒数
+  * time : 接收一个 xx:xx.x 格式的时间
+  */
+  function formate(time){
+    if (!/\d\d:\d\d\.\d+/.test(time)) return;
+
+    var ms = parseInt(time.split(".")[1]);
+    var s = parseInt(time.split(".")[0].split(":")[1]);
+    var m = parseInt(time.split(".")[0].split(":")[0]);
+    return ms/1000 + s + m*60;
+  }
+
+  $('audio').on("play",function(){
+    var _this = $(this);
+    var nowLrc = _this.attr("src").split(".")[0]+".lrc";
+    if ($('audio').eq(0).attr("src") != _this.attr("src")) {
+        if(!$('audio').eq(0).get(0).paused) {
+            $('audio').eq(0).get(0).pause();
+        }
+    } else {
+       if(!$('audio').eq(1).get(0).paused) {
+            $('audio').eq(1).get(0).pause();
+        }
+    }
+   
+    if (lrc != nowLrc) {
+        lrc = nowLrc;
+        request(nowLrc);
+    }
+    clearInterval(timer);
+    timer = setInterval(function(){
+      scroll(_this[0]);
+    },50)
+  })
+
+/**
+* request 用于请求歌词 展示和切换
+* lrc : 接收歌词的请求地址 
+*/
+function request(lrc){
+  $.ajax({
+    url:lrc,
+    type:'get',
+    success:function(data){
+        var rows = data.split("\n");
+        arr = [];
+        html = '';
+        $("#lrc>ul").html("");
+        $.each(rows,function(key,val){
+            html += "<li>"+val.split("]")[1]+"</li>";
+        })
+        var reg = /\d\d:\d\d\.\d\d/g;
+        var result = '';
+        while ((result = reg.exec(data)) != null)  {
+            arr.push(formate(result[0]));
+        }
+        $("#lrc>ul").html(html);
+    }
+  });
+}
+
+/**
+* scroll 用于歌词的滚动
+* _this : 接收当前是哪个audio播放
+*/
+function scroll(_this){
+    $.each(arr,function(key,val){
+        if (Math.round(_this.currentTime) != Math.round(val)) return;
+        var topLi = $("#lrc>ul>li").eq(key).get(0).offsetTop;
+        var isNull = $("#lrc>ul>li").eq(key).html();
+        var moveTop = -(topLi - $("#lrc").height()/2);
+        if (isNull == "") {
+          $("#lrc>ul>li").eq(key-1).addClass("on").siblings().removeClass("on");
+          return;
+        }
+        $("#lrc>ul>li").eq(key).addClass("on").siblings().removeClass("on");
+        if (topLi < $("#lrc").height()/2) {
+          $("#lrc>ul").css({"top":0});
+        } else {
+          $("#lrc>ul").css({"top":moveTop});
+        }
+        
+    
+    })
+    if(_this.duration<=_this.currentTime){
+        clearInterval(timer);
+       $("#lrc>ul").css({"top":0});
+    }
+}
+request(lrc);
+
+
+ });
+ </script>
+</body>
+</html>
