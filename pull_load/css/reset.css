@@ -1,0 +1,183 @@
+body,html {
+    height: 100%;
+}
+
+a,body,button,div,em,h1,h2,h3,h4,h5,h6,header,html,input,li,nav,ol,p,section,select,span,ul {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+button,input,select,textarea {
+    outline: 0;
+    border: 0 none
+}
+
+b,em,i,s,strong {
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 500
+}
+
+li,ol,ul {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+body{font-size: 0.28rem;}
+.clearfixed:after {
+    content: '';
+    display: block;
+    clear: both
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+/*动画效果*/
+.loading {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    margin: 6px;
+    border: 2px solid #666;
+    border-bottom-color: transparent;
+    vertical-align: middle;
+    -webkit-animation: rotate .75s linear infinite;
+    animation: rotate .75s linear infinite
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+/*颜色*/
+.f8285c {
+    color: #f8285c!important;
+}
+.bg-f8285c {
+    color: #f8285c!important;
+}
+.bg-gray{
+    background-color:gray!important;
+}
+
+.DE {
+    padding-left: .45rem!important;
+    background: url(../images/country/icon-it@2x.png) left center no-repeat!important;
+    background-size: .4rem .28rem!important
+}
+
+.CN {
+    padding-left: .45rem!important;
+    background: url(../images/country/timg.jpg) left center no-repeat!important;
+    background-size: .4rem .28rem!important
+}
+
+.US {
+    padding-left: .45rem!important;
+    background: url(../images/country/icon-usa@2x.png) left center no-repeat!important;
+    background-size: .4rem .28rem!important
+}
+
+.buyCar {
+    position: fixed;
+    bottom: .3rem;
+    left: .3rem;
+    width: 2.2rem;
+    height: .8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    border-radius: .4rem
+}
+
+.buyCar a {
+    font-size: .12rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    height: 100%;
+    position: relative
+}
+
+.buyCar a:nth-of-type(1) {
+    background: url(../images/index/ico_user@2x.png) center center no-repeat;
+    background-size: .48rem .48rem
+}
+
+.buyCar a:nth-of-type(2) {
+    background: url(../images/index/ico_cart@2x.png) center center no-repeat;
+    background-size: .48rem .48rem
+}
+
+.buyCar a:nth-of-type(3) {
+    background: url(../images/index/ico_cart_white@2x.png) center center no-repeat;
+    background-size: .48rem .48rem
+}
+
+.buyCar .buyCar_collect,.buyCar .buyCar_num {
+    position: absolute;
+    top: .12rem;
+    right: .16rem;
+    color: #fff;
+    background: #f8285c;
+    border-radius: 50%;
+    height: .28rem;
+    width: .28rem;
+    text-align: center;
+    line-height: .28rem;
+    font-size: .2rem
+}
+
+.buyCar .buyCar_collect i,.buyCar .buyCar_num i {
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+    display: block
+}
+
