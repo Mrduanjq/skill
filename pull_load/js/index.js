@@ -55,7 +55,6 @@ $(function(){
 		   }
             $(inner).addClass('translateZ'); // 启动硬件加速
             var topNum = (touchs.pageY - startY)/3;
-            console.log("topNum: "+ topNum);
             inner.style.top = topNum + "px";
             $(".top_title").html("松手即可刷新");
         } else if (inner.offsetTop <= maxDistance) {
@@ -76,7 +75,6 @@ $(function(){
 		e.preventDefault();
 		var touchs = e.changedTouches[0];
 		var minDis = touchs.pageY - startY; // 最小移动距离
-		console.log(minDis)
 	    function sliderMove(){
 	    	if (inner.offsetTop > 0 && inner.offsetTop < 30) {
 	    		$(inner).stop(true).animate({top:0},300);
