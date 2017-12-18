@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" style="opacity: 0;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>砸金缸</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="libs/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <img id="img" style="position:absolute;top:0;left:0;width:100%;" src="images/bg.png" alt="">
+    <div class="wrapper">
+        <div class="top">
+            <span class="back_left"></span>
+            <img class="change spe logo_right" src="images/logo1.png" alt="">
+            <img class="change spe activiting_center" src="images/activiting.png" alt="">
+        </div>
+        <div class="center_top">
+            <ul id="dataList" class="change spe">
+            </ul>
+            <img class="change spe" src="images/logo.png" alt="">
+        </div>
+        <div class="center_center">
+            <img class="g" src="images/g.png" alt="">
+            <img class="y" src="images/y.png" alt="">
+            <div class="money_num">
+                <h4 id="money_title">下期共放出</h4>
+                <span id="money"></span>
+                <p id="money_footer">现金豪礼</p>
+            </div>
+        </div>
+        <div class="center_bottom">
+            <img class="history_left" src="images/history.png" alt="">
+            <div class="my_bag">
+                <p>
+                    <span id="my_yb_num">0</span>
+                </p>
+                <a class="goShopping" href="javascript:void(0)">去商城 &nbsp;&nbsp;>></a>
+            </div>
+        </div>
+       <div class="activity_timer change spe">
+            <h2 class="change spe">距离下次活动开始还有</h2>
+            <article class="change spe">
+                <span class="day">0</span>天<span class="hour">0</span>时<span class="min">0</span>分<span class="sec">0</span>秒
+            </article>
+            <h3 class="spe change">活动结束倒计时</h3>
+            <div class="spe change timer"><em class="min_ed">0</em> &nbsp;分 &nbsp;<i class="sec_ed">0</i> &nbsp;秒</div>
+       </div>
+       <div class="footer">
+        <ul class="money spe change">
+            <li>
+                <div class="one"><img src="images/1.png" alt=""></div>
+                <p>扔1个</p>
+                <div class="path fly_1">
+                    <span class="fly_1" id="fly_1"></span>
+                </div>
+            </li>
+            <li>
+                <div class="ten"><img src="images/10.png" alt=""></div>
+                <p>扔10个</p>
+                <div class="path fly_2">
+                    <span class="fly_1" id="fly_2"></span>
+                </div>
+            </li>
+            <li>
+                <div class="hundred"><img src="images/100.png" alt=""></div>
+                <p>扔100个</p>
+                <div class="path fly_3">
+                    <span class="fly_1" id="fly_3"></span>
+                </div>
+            </li>
+        </ul>
+       </div>
+       <div class="mask_wrapper">
+           <div class="mask_bg">
+               <h3 class="cleanfixed"><span class="left">中奖商品</span><span class="right">获奖时间</span></h3>
+               <ul id="historyLists">
+                  
+               </ul>
+           </div>
+       </div>
+       <div class="footer_bottom spe change">
+           <p class="spe">周末每天10:00-11:00,12:00-13:00,20:00-21:00，使用小元宝砸金缸100%砸出收获！金缸里有大量的现金红包，高额保证金抵扣券和活跃币等着你呦！小元宝获取方式：1.参加周一到周五的定时小元宝大放送；2.到活跃币商城兑换。</p>
+       </div>
+       <div class="show_prize_wrapper">
+           <div class="show_prize">
+              <div class="prize_box">
+                <h3>恭喜您获得了</h3>
+                <p class="article">85%单手保证金抵扣券</p>
+                <p>吾皇再接再励呦~</p>
+                <p class="sure_btn"></p>
+             </div>   
+           </div> 
+       </div>
+       <div class="shopping_wrapper">
+       </div>
+    </div>
+
+    <script src="libs/layer/layer.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>
