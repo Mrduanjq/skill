@@ -13,7 +13,7 @@ $(function(){
     var lock = true;
     var hasMoney = true; // 是否有现金出现
     var nickName = 'mrduan';
-    var smashMsg = '五百万';
+    var smashMsg = '蓉小姐';
     var dataListTimer = null;
     var step = 2500; // 发送弹幕所用的变量
     $(".money").on('touchend','li',function(){
