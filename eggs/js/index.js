@@ -170,7 +170,7 @@ $(function(){
                     $("#money").text("￥"+data.showCash);
                     $("#money_footer").text("现金豪礼");                   
                 } else { // 活动开始
-                    clockReverse(data.endTime);
+                    clockReverse(+new Date()+200000);
                     $("#money_title").text("剩余 ");
                     $("#money").text("￥"+data.showCash);
                     if (data.showCash <= 0) { // 资金池为0后将现金关闭
